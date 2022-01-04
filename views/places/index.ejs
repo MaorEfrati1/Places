@@ -1,0 +1,10 @@
+<h2>Search Places</h2>
+<form action="/places" method="GET">
+    <label>Name</label>
+    <input type="text" name="placeName" value="<%= searchOption.placeName %> ">
+    <button type="submit">Search</button>
+</form>
+<br>
+<% places.forEach(place => { %>
+<div><%= place.placeName %> </div>
+<% }) %>
