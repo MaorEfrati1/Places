@@ -1,0 +1,8 @@
+<h2>Edit Place</h2>
+<!--  enctype="multipart/form-data" //> -->
+<form action="/places/<%= place.id %>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+    <a href="/places/<%= place.id %>">Cancel</a>
+    <button type="submit">Update</button>
+
+</form>

@@ -1,2 +1,25 @@
-<label>Place Name</label>
-<input type="text" name="placeName" value="<%= place.placeName %>">
+<div>
+    <div>
+        <label>*Place Name</label><br>
+        <input type="text" name="placeName" value="<%= place.placeName %>">
+        <br>
+    </div>
+</div>
+
+<div>
+    <label>Info:</label><br>
+    <textarea name="info"><%= place.info%></textarea>
+    <br>
+</div>
+
+<div>
+    <label>*img:</label><br>
+    <!-- <input type="file" name="img"> -->
+    <input type="text" name="img" value="<%= place.img %>">
+    <br>
+</div>
+
+<div>
+    <label style=" color: rgb(21, 255, 0);">* Required</label>
+    <br>
+</div>

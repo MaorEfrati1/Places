@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const router = require('../routes/places')
+
+// const placeImgBasePath = 'uploads/placeImgs'
 
 const placeSchema = new mongoose.Schema({
     placeName: {
@@ -7,20 +10,16 @@ const placeSchema = new mongoose.Schema({
     },
     info: {
         type: String,
+        required: true
     },
-    img1: {
+    img: {
         type: String,
-        // required: true
+        required: true
     },
-    img2: {
-        type: String,
-    },
-    img3: {
-        type: String
-    },
-    img4: {
-        type: String
-    },
+    // placeImgName: {
+    //     type: String,
+    //     required: true
+    // },
     placeDate: {
         type: Date,
         required: true,
@@ -29,3 +28,4 @@ const placeSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Place', placeSchema)
+// module.exports.placeImgBasePath = placeImgBasePath

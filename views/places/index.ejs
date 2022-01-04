@@ -7,4 +7,11 @@
 <br>
 <% places.forEach(place => { %>
 <div><%= place.placeName %> </div>
+<a href="/places/<%= place.id %>">View</a>
+<a href="/places/<%= place.id %>/edit">Edit</a>
+
+<form method="POST" action="/places/<%= place.id %>?_method=DELETE">
+    <button type="submit">Delete</button>
+
+</form>
 <% }) %>
