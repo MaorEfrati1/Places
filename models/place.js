@@ -12,20 +12,29 @@ const placeSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    img: {
+    img1: {
         type: String,
         required: true
     },
-    // placeImgName: {
-    //     type: String,
-    //     required: true
-    // },
+    img2: {
+        type: String,
+        required: true
+    },
+    img3: {
+        type: String,
+    },
+    img4: {
+        type: String,
+    },
+
     placeDate: {
         type: Date,
         required: true,
         default: Date.now
     }
 })
+
+
 
 module.exports = mongoose.model('Place', placeSchema)
 // module.exports.placeImgBasePath = placeImgBasePath

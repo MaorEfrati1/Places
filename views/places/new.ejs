@@ -1,8 +1,38 @@
-<h2>New Place</h2>
-<!--  enctype="multipart/form-data" //> -->
-<form action="/places" method="POST">
-    <%- include('_form_fields') %>
-    <a href="/places">Cancel</a>
-    <button type="submit">Create</button>
+<!DOCTYPE html>
+<html lang="en">
 
-</form>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .center {
+            position: relative;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .search {
+            color: antiquewhite;
+            font-size: 30px;
+            padding-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="center">
+        <div class="header">
+            <!--  enctype="multipart/form-data" //> -->
+            <form action="/places" method="POST">
+                <%- include('_form_fields') %>
+                <button type="submit">Create</button>
+                <a style="font-size: 25px; color: antiquewhite;" href="/places">Cancel</a>
+        </div>
+    </div>
+    </form>
+</body>
+
+</html>

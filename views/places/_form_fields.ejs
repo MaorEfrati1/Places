@@ -1,25 +1,139 @@
-<div>
-    <div>
-        <label>*Place Name</label><br>
-        <input type="text" name="placeName" value="<%= place.placeName %>">
-        <br>
-    </div>
-</div>
+<!DOCTYPE html>
+<html>
 
-<div>
-    <label>Info:</label><br>
-    <textarea name="info"><%= place.info%></textarea>
-    <br>
-</div>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        /*Background*/
+        body {
+            background-image: url('/img/background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-<div>
-    <label>*img:</label><br>
-    <!-- <input type="file" name="img"> -->
-    <input type="text" name="img" value="<%= place.img %>">
-    <br>
-</div>
+        /* The navbar */
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
 
-<div>
-    <label style=" color: rgb(21, 255, 0);">* Required</label>
-    <br>
-</div>
+        /* Navbar links */
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 20px 30px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .center {
+            position: relative;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+
+        .header {
+            color: antiquewhite;
+            font-size: 35px;
+            padding-left: 25px;
+        }
+
+        .search {
+            color: antiquewhite;
+            font-size: 20px;
+            padding-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="bg-img">
+            <div class="container">
+                <div class="topnav">
+                    <a href="/places">Places Manger</a>
+                    <a href="/places/new">Add Place</a>
+                    <% places.forEach(place => { %>
+                    <a href="/places/<%= place.id %>"><%= place.placeName %></a>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <header>
+        <h1 style="color: floralwhite; text-align: center; font-size: 50px;">New Place</h1>
+    </header>
+
+
+    <section>
+        <div class="center">
+            <div class="header">
+                <div>
+                    <div>
+                        <div>
+                            <label>*Place Name</label><br>
+                            <input type="text" name="placeName" value="<%= place.placeName %>">
+                            <br>
+                        </div>
+                    </div>
+
+                    <div>
+                        <br>
+                        <label>*Place Info:</label><br>
+                        <textarea name="info"><%= place.info%></textarea>
+                        <br>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="color: blue;">Add Image URL</h3>
+
+                    <div>
+                        <label>*Place Flag image:</label><br>
+                        <!-- <input type="file" name="img"> -->
+                        <input type="text" name="img1" value="<%= place.img1 %>">
+                        <br>
+                    </div>
+                    <div>
+                        <label>*Place image(Position: Center):</label><br>
+                        <!-- <input type="file" name="img"> -->
+                        <input type="text" name="img2" value="<%= place.img2 %>">
+                        <br>
+                    </div>
+                    <div>
+                        <label>Place image(Position: Right):</label><br>
+                        <!-- <input type="file" name="img"> -->
+                        <input type="text" name="img3" value="<%= place.img3 %>">
+                        <br>
+                    </div>
+                    <div>
+                        <label>Place image(Position: Left):</label><br>
+                        <!-- <input type="file" name="img"> -->
+                        <input type="text" name="img4" value="<%= place.img4 %>">
+                        <br>
+                    </div>
+
+                    <div>
+                        <label style=" color: rgb(21, 255, 0);">* Required!</label>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

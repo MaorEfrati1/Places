@@ -40,10 +40,18 @@ router.get('/', async (req, res) => {
 })
 
 // New place Route
-router.get('/new', (req, res) => {
-    res.render('places/new', {
-        place: new Place()
-    })
+router.get('/new', async (req, res) => {
+    try {
+
+        const places = await Place.find({})
+        res.render('places/new', {
+            places: places,
+            place: new Place()
+        })
+    } catch {
+        res.redirect('/')
+        console.log(err)
+    }
 })
 
 // Create Place Route
@@ -54,7 +62,10 @@ router.post('/', /*upload.single('img'),*/ async (req, res) => {
     const place = new Place({
         placeName: req.body.placeName,
         info: req.body.info,
-        img: req.body.img
+        img1: req.body.img1,
+        img2: req.body.img2,
+        img3: req.body.img3,
+        img4: req.body.img4
         // placeImgName: fileName
     })
 
@@ -75,8 +86,10 @@ router.post('/', /*upload.single('img'),*/ async (req, res) => {
 //get by id
 router.get('/:id', async (req, res) => {
     try {
+        const places = await Place.find({})
         const place = await Place.findById(req.params.id)
         res.render('places/show', {
+            places: places,
             place: place
         })
     } catch (err) {
@@ -88,8 +101,10 @@ router.get('/:id', async (req, res) => {
 //edit by id
 router.get('/:id/edit', async (req, res) => {
     try {
+        const places = await Place.find({})
         const place = await Place.findById(req.params.id)
         res.render('places/edit', {
+            places: places,
             place: place
         })
     } catch {
@@ -105,7 +120,10 @@ router.put('/:id', async (req, res) => {
         place = await Place.findById(req.params.id)
         place.placeName = req.body.placeName
         place.info = req.body.info
-        place.img = req.body.img
+        place.img1 = req.body.img1,
+            place.img2 = req.body.img2,
+            place.img3 = req.body.img3,
+            place.img4 = req.body.img4
 
         await place.save()
         res.redirect(`/places/${place.id}`)
