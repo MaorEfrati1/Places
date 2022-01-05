@@ -21,12 +21,6 @@ router.get('/', async (req, res) => {
     if (req.query.placeName != null && req.query.placeName !== '') {
         searchOption.placeName = new RegExp(req.query.placeName, 'i')
     }
-    // if (req.query.placeName != null && req.query.placeName !== '') {
-    //     searchOption.placeName = new RegExp(req.query.placeName, 'i')
-    // }
-    // if (req.query.placeName != null && req.query.placeName !== '') {
-    //     searchOption.placeName = new RegExp(req.query.placeName, 'i')
-    // }
 
     try {
         const places = await Place.find(searchOption)
@@ -50,7 +44,6 @@ router.get('/new', async (req, res) => {
         })
     } catch {
         res.redirect('/')
-        console.log(err)
     }
 })
 
@@ -72,7 +65,6 @@ router.post('/', /*upload.single('img'),*/ async (req, res) => {
     try {
         const newPlace = await place.save()
         res.redirect(`places/${newPlace.id}`)
-        //res.redirect(`places`)
     } catch (err) {
         res.render('places/new', {
             place: place,
