@@ -36,4 +36,4 @@
  app.use('/', indexRouter)
  app.use('/places', placeRouter)
 
- app.listen(process.env.PORT || 4000)
+ app.listen(process.env.PORT || 3000)
